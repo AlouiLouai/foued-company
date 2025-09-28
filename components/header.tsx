@@ -43,10 +43,7 @@ export function Header() {
           <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="#">
             Services
           </a>
-          <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="#">
-            Team
-          </a>
-          <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="#">
+          <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="/contact">
             Contact
           </a>
           <Button variant="ghost" size="icon" onClick={toggleTheme}>

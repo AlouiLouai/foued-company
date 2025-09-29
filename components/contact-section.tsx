@@ -54,14 +54,15 @@ export function ContactSection() {
         setCurrentStep(3);
     };
 
-    const handleChatComplete = (chatData: { [key: string]: string }) => {
-        setChatData(chatData);
-        handleFinalSubmit();
+    const handleChatComplete = (completedChatData: { [key: string]: string }) => {
+        setChatData(completedChatData);
+        handleFinalSubmit(completedChatData);
     }
 
-    const handleFinalSubmit = async () => {
+    const handleFinalSubmit = async (finalChatData: { [key: string]: string }) => {
         setIsLoading(true);
         try {
+            console.log("Chat Data being sent:", chatData);
             const response = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: {
@@ -71,7 +72,7 @@ export function ContactSection() {
                     name: `${formData.firstName} ${formData.lastName}`,
                     email: formData.email,
                     message: formData.message,
-                    discussion: JSON.stringify(chatData, null, 2), // Convert chatData object to a formatted string
+                    discussion: JSON.stringify(finalChatData, null, 2), // Convert chatData object to a formatted string
                 }),
             });
 
@@ -160,7 +161,12 @@ export function ContactSection() {
                             </form>
                             {currentStep === 3 && (
                                 <>
-                                    <Chatbot onChatComplete={handleChatComplete} />
+                                    {isLoading && (
+                                        <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10 rounded-2xl">
+                                            <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                                        </div>
+                                    )}
+                                    <Chatbot onChatComplete={handleChatComplete} isLoading={isLoading} />
                                     <div className="flex justify-start items-center mt-6">
                                         <Button type="button" onClick={() => setCurrentStep(2)} variant="ghost" className="text-muted-foreground hover:text-primary">
                                             Back

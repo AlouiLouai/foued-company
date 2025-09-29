@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Send } from "lucide-react"
 
 interface ChatbotProps {
-  onChatComplete: (chatData: { [key: string]: string }) => void
+  onChatComplete: (chatData: { [key: string]: string }) => void;
+  isLoading: boolean;
 }
 
 const questions = [
@@ -21,7 +22,7 @@ const TypingIndicator = () => (
   </div>
 )
 
-export function Chatbot({ onChatComplete }: ChatbotProps) {
+export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
   const [messages, setMessages] = useState<{ text: string; sender: "bot" | "user" }[]>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [userInput, setUserInput] = useState("")
@@ -45,7 +46,7 @@ export function Chatbot({ onChatComplete }: ChatbotProps) {
     const newMessages = [...messages, { text: userInput, sender: "user" as "user" }]
     setMessages(newMessages)
 
-    const questionKey = questions[currentQuestionIndex].substring(0, 20) // Use a snippet of the question as a key
+    const questionKey = questions[currentQuestionIndex]; // Use the full question as a key
     const newChatData = { ...chatData, [questionKey]: userInput }
     setChatData(newChatData)
 
@@ -94,8 +95,9 @@ export function Chatbot({ onChatComplete }: ChatbotProps) {
           onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
           className="w-full p-2 rounded-lg bg-background border-border border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none"
           placeholder="Your response..."
+          disabled={isLoading}
         />
-        <Button onClick={handleSendMessage} variant="ghost" size="icon" className="ml-2 text-primary">
+        <Button onClick={handleSendMessage} variant="ghost" size="icon" className="ml-2 text-primary" disabled={isLoading}>
           <Send className="h-6 w-6" />
         </Button>
       </div>

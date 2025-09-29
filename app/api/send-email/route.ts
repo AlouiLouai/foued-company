@@ -23,8 +23,8 @@ export async function POST(req: NextRequest) {
     const emailHtml = await render(ContactFormEmail({ name, email, message, discussion }));
 
     const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: email,
+      from: email,
+      to: process.env.GMAIL_USER,
       subject: 'New Contact Form Submission',
       html: emailHtml,
     };

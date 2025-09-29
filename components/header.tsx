@@ -26,15 +26,7 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm shadow-md border-b border-border">
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
         <a href="/" className="flex items-center gap-3">
-          <svg
-            className="h-8 w-8 text-primary"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"></path>
-          </svg>
-          <span className="text-2xl font-bold text-primary">Foued Company</span>
+          <img src="/app_logo.png" alt="Foued Company Logo" className="h-14 w-auto" />
         </a>
         <div className="hidden md:flex items-center gap-8">
           <a className="text-base font-semibold text-primary transition-colors" href="#">

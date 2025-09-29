@@ -47,7 +47,7 @@ export const ContactFormEmail = ({ name, email, message, discussion }: ContactFo
             )}
           </Section>
           <Section style={footerSection}>
-            <Text style={footerText}>© {new Date().getFullYear()} Foued Company. All rights reserved.</Text>
+            <Text style={footerText}>© {new Date().getFullYear()} Renovexium. All rights reserved.</Text>
           </Section>
         </Container>
       </Body>

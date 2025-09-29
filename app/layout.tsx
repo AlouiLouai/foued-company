@@ -11,7 +11,7 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "BuildRight Construction - Building the Future, Together",
+  title: "Renovexium - Building the Future, Together",
   description:
     "With a legacy of excellence and a commitment to innovation, we deliver exceptional construction solutions that shape communities and inspire progress.",
 }

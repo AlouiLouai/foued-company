@@ -18,7 +18,7 @@ export function Footer() {
               <Instagram className="w-6 h-6" />
             </a>
           </div>
-          <p className="mb-2 md:mb-0">© 2025 Foued Company. All rights reserved.</p>
+          <p className="mb-2 md:mb-0">© 2025 Renovexium. All rights reserved.</p>
         </div>
       </div>
     </footer>

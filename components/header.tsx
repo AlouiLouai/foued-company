@@ -33,7 +33,7 @@ export function Header() {
     >
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 bg-transparent">
         <a href="/" className="flex items-center gap-3">
-          <img src="/app.png" alt="Foued Company Logo" className="h-14 w-auto" />
+          <img src="/app_logo.png" alt="Renovexium Logo" className="h-14 w-auto" />
         </a>
         <div className="hidden md:flex items-center gap-8">
           <a className="text-base font-semibold text-black transition-colors" href="#">

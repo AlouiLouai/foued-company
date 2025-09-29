@@ -23,7 +23,7 @@ export function Chatbot() {
       setIsTyping(true)
       setTimeout(() => {
         setMessages([
-          { text: "Welcome to Foued Company! How can I assist you today?", sender: "bot" },
+          { text: "Welcome to Renovexium! How can I assist you today?", sender: "bot" },
         ])
         setIsTyping(false)
       }, 1500)
@@ -62,7 +62,7 @@ export function Chatbot() {
             <div className="p-4 bg-primary text-primary-foreground rounded-t-xl flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <Bot className="h-6 w-6" />
-                    <h3 className="font-bold text-lg">Foued Assistant</h3>
+                    <h3 className="font-bold text-lg">Renovexium Assistant</h3>
                 </div>
               <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="hover:bg-primary/80">
                 <X className="h-5 w-5" />

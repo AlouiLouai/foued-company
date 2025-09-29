@@ -61,10 +61,31 @@ export function ContactSection() {
 
     const handleFinalSubmit = async () => {
         setIsLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        setIsLoading(false);
-        setIsSubmitted(true);
-        console.log("Form submitted with data:", { ...formData, chatData });
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: `${formData.firstName} ${formData.lastName}`,
+                    email: formData.email,
+                    message: formData.message,
+                    discussion: JSON.stringify(chatData, null, 2), // Convert chatData object to a formatted string
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send email');
+            }
+
+            setIsSubmitted(true);
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert('Failed to send your message. Please try again later.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (

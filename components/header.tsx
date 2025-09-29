@@ -1,61 +1,53 @@
 "use client"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Sun, Moon } from "lucide-react"
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [theme, setTheme] = useState("light")
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme") || "light"
-      setTheme(savedTheme)
-      document.documentElement.classList.toggle("dark", savedTheme === "dark")
-    }
-  }, [])
+      const handleScroll = () => {
+        if (window.scrollY > lastScrollY && window.scrollY > 100) {
+          // Scrolling down
+          setIsVisible(false)
+        } else {
+          // Scrolling up
+          setIsVisible(true)
+        }
+        setLastScrollY(window.scrollY)
+      }
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-    localStorage.setItem("theme", newTheme)
-    document.documentElement.classList.toggle("dark", newTheme === "dark")
-  }
+      window.addEventListener("scroll", handleScroll)
+      return () => {
+        window.removeEventListener("scroll", handleScroll)
+      }
+    }
+  }, [lastScrollY])
 
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm shadow-md border-b border-border">
-      <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 bg-transparent transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 bg-transparent">
         <a href="/" className="flex items-center gap-3">
-          <img src="/app_logo.png" alt="Foued Company Logo" className="h-14 w-auto" />
+          <img src="/app.png" alt="Foued Company Logo" className="h-14 w-auto" />
         </a>
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-base font-semibold text-primary transition-colors" href="#">
+          <a className="text-base font-semibold text-black transition-colors" href="#">
             About Us
           </a>
-          <a className="text-base font-semibold text-primary transition-colors" href="#">
+          <a className="text-base font-semibold text-black transition-colors" href="#">
             Services
           </a>
-          <a className="text-base font-semibold text-primary transition-colors" href="/contact">
+          <a className="text-base font-semibold text-black transition-colors" href="/contact">
             Contact
           </a>
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
-            {theme === "light" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
         </div>
         <div className="flex items-center md:hidden">
-          <Button variant="ghost" size="icon" onClick={toggleTheme} className="mr-2">
-            {theme === "light" ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
-          <button className="text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            <svg
+          <button className="text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>            <svg
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
@@ -94,13 +86,6 @@ export function Header() {
           <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>
             Contact
           </a>
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
-            {theme === "light" ? (
-              <Sun className="h-6 w-6" />
-            ) : (
-              <Moon className="h-6 w-6" />
-            )}
-          </Button>
         </div>
       )}
     </header>

@@ -13,16 +13,16 @@ export function Stepper({ currentStep, totalSteps }: StepperProps) {
       {steps.map((step, index) => (
         <div key={step} className="flex items-center">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-white ${
-              step === currentStep ? "bg-primary" : "bg-muted"
+            className={`w-8 h-8 rounded-full flex items-center justify-center text-black border border-black ${
+              step === currentStep ? "bg-transparent" : "bg-transparent"
             }`}
           >
             {step}
           </div>
           {index < totalSteps - 1 && (
             <div
-              className={`h-1 w-24 mx-2 ${
-                step < currentStep ? "bg-primary" : "bg-border"
+              className={`h-1 w-24 mx-2 border-t border-black ${
+                step < currentStep ? "bg-transparent" : "bg-transparent"
               }`}
             ></div>
           )}

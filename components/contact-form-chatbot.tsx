@@ -68,8 +68,8 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
   }
 
   return (
-    <div className="bg-input/50 p-4 rounded-lg border border-border">
-      <div className="h-72 overflow-y-auto mb-4 p-2 rounded-lg bg-background/70">
+    <div className="p-4 rounded-lg border border-black">
+      <div className="h-72 overflow-y-auto mb-4 p-2 rounded-lg bg-transparent">
         {messages.map((msg, index) => (
           <div key={index} className={`flex mb-3 ${
               msg.sender === "bot" ? "justify-start" : "justify-end"
@@ -77,8 +77,8 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
             <div
               className={`py-2 px-3 rounded-2xl max-w-[85%] shadow-sm ${
                 msg.sender === "bot"
-                  ? "bg-muted text-muted-foreground rounded-bl-none"
-                  : "bg-primary text-primary-foreground rounded-br-none"
+                  ? "bg-white/50 text-black rounded-bl-none"
+                  : "bg-black text-white rounded-br-none"
               }`}>
               {msg.text}
             </div>
@@ -93,11 +93,11 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-          className="w-full p-2 rounded-lg bg-background border-border border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none"
+          className="w-full p-2 rounded-lg bg-white/50 border-black border focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none"
           placeholder="Your response..."
           disabled={isLoading}
         />
-        <Button onClick={handleSendMessage} variant="ghost" size="icon" className="ml-2 text-primary" disabled={isLoading}>
+        <Button onClick={handleSendMessage} variant="ghost" size="icon" className="ml-2 text-black" disabled={isLoading}>
           <Send className="h-6 w-6" />
         </Button>
       </div>

@@ -16,6 +16,7 @@ import {
   Sprout,
 } from "lucide-react";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+import React from "react";
 
 export function ServicesSection() {
   const services = [
@@ -35,21 +36,19 @@ export function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="py-12 md:py-16 bg-gray-50">
+    <section id="services" className="py-12 md:py-16">
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8 md:mb-12">Our Services</h2>
         </AnimateOnScroll>
         <AnimateOnScroll delay={0.1}>
-          <div className="marquee-container overflow-x-hidden whitespace-nowrap">
-            <div className="marquee-content inline-block">
-              {services.concat(services).map((service, index) => (
-                <div key={index} className="inline-block w-64 mx-4 text-center">
-                  <div className="flex justify-center mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="flex flex-col items-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 transform hover:-translate-y-1">
+                <div className="flex justify-center mb-6 p-4 rounded-full bg-white/20">{React.cloneElement(service.icon, { className: "w-16 h-16 text-black" })}</div>
+                <h3 className="text-2xl font-bold text-black">{service.title}</h3>
+              </div>
+            ))}
           </div>
         </AnimateOnScroll>
       </div>

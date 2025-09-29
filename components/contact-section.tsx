@@ -90,21 +90,21 @@ export function ContactSection() {
     };
 
     return (
-        <section id="contact" className="py-16 md:py-24 bg-background">
+        <section id="contact" className="py-16 md:py-24">
             <div className="container mx-auto px-4 max-w-2xl">
-                <div className="bg-card p-8 md:p-12 rounded-2xl shadow-lg border border-border">
+                <div className="p-8 md:p-12 rounded-2xl">
                     {isSubmitted ? (
                         <div className="text-center p-8" ref={successRef} tabIndex={-1}>
-                            <h3 className="text-2xl font-bold text-primary mb-4">Thank you!</h3>
-                            <p className="text-muted-foreground">Your message has been sent successfully. We\'ll get back to you soon.</p>
+                            <h3 className="text-2xl font-bold text-black mb-4">Thank you!</h3>
+                            <p className="text-black">Your message has been sent successfully. We\'ll get back to you soon.</p>
                         </div>
                     ) : (
                         <>
                             <Stepper currentStep={currentStep} totalSteps={3} />
-                            <h3 className="text-2xl font-bold text-center mb-2">
+                            <h3 className="text-2xl font-bold text-center mb-2 text-black">
                                 {currentStep === 1 ? "Your Details" : currentStep === 2 ? "Your Message" : "Additional Information"}
                             </h3>
-                            <p className="text-muted-foreground text-center mb-8">
+                            <p className="text-black text-center mb-8">
                                 {currentStep === 1 ? "Let's start with some basic information." : currentStep === 2 ? "Almost there! What can we help you with?" : "Please answer a few more questions."}
                             </p>
                             <form onSubmit={currentStep === 1 ? handleNext : handleNextToChatbot} className="grid grid-cols-1 gap-6">
@@ -112,32 +112,32 @@ export function ContactSection() {
                                     <>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                             <div>
-                                                <label htmlFor="firstName" className="block text-sm font-medium text-muted-foreground mb-1">First Name</label>
-                                                <input type="text" id="firstName" value={formData.firstName} onChange={handleChange} placeholder="John" className="w-full p-3 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none" required />
+                                                <label htmlFor="firstName" className="block text-sm font-medium text-black mb-1">First Name</label>
+                                                <input type="text" id="firstName" value={formData.firstName} onChange={handleChange} placeholder="John" className="w-full p-3 rounded-lg bg-white/50 border border-black focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none" required />
                                             </div>
                                             <div>
-                                                <label htmlFor="lastName" className="block text-sm font-medium text-muted-foreground mb-1">Last Name</label>
-                                                <input type="text" id="lastName" value={formData.lastName} onChange={handleChange} placeholder="Doe" className="w-full p-3 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none" required />
+                                                <label htmlFor="lastName" className="block text-sm font-medium text-black mb-1">Last Name</label>
+                                                <input type="text" id="lastName" value={formData.lastName} onChange={handleChange} placeholder="Doe" className="w-full p-3 rounded-lg bg-white/50 border border-black focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none" required />
                                             </div>
                                         </div>
                                         <div>
-                                            <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">Email</label>
-                                            <input type="email" id="email" value={formData.email} onChange={handleChange} placeholder="john.doe@example.com" className="w-full p-3 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none" required />
+                                            <label htmlFor="email" className="block text-sm font-medium text-black mb-1">Email</label>
+                                            <input type="email" id="email" value={formData.email} onChange={handleChange} placeholder="john.doe@example.com" className="w-full p-3 rounded-lg bg-white/50 border border-black focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none" required />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-muted-foreground mb-1">Phone Number</label>
+                                            <label className="block text-sm font-medium text-black mb-1">Phone Number</label>
                                             <div className="flex space-x-2">
-                                                <select id="phoneCountryCode" value={formData.phoneCountryCode} onChange={handleChange} className="flex-shrink-0 p-3 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none">
+                                                <select id="phoneCountryCode" value={formData.phoneCountryCode} onChange={handleChange} className="flex-shrink-0 p-3 rounded-lg bg-white/50 border border-black focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none">
                                                     {COUNTRY_CODES.map((country) => (
-                                                        <option key={country.code} value={country.code}>
+                                                        <option key={country.code} value={country.code} className="bg-white/50 text-black">
                                                             {country.code} {country.flag}
                                                         </option>
                                                     ))}
                                                 </select>
-                                                <input type="tel" id="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="12 34 56 78" className="w-full p-3 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none" required />
+                                                <input type="tel" id="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="12 34 56 78" className="w-full p-3 rounded-lg bg-white/50 border border-black focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none" required />
                                             </div>
                                         </div>
-                                        <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 transition-colors">
+                                        <Button type="submit" className="w-full bg-black hover:bg-gray-800 text-white font-semibold py-3 transition-colors">
                                             Next
                                         </Button>
                                     </>
@@ -145,14 +145,14 @@ export function ContactSection() {
                                 {currentStep === 2 && (
                                     <>
                                         <div>
-                                            <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-1">Message</label>
-                                            <textarea id="message" value={formData.message} onChange={handleChange} placeholder="How can we assist you today?" rows={5} className="w-full p-3 rounded-lg bg-input border border-border focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none" required></textarea>
+                                            <label htmlFor="message" className="block text-sm font-medium text-black mb-1">Message</label>
+                                            <textarea id="message" value={formData.message} onChange={handleChange} placeholder="How can we assist you today?" rows={5} className="w-full p-3 rounded-lg bg-white/50 border border-black focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none" required></textarea>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <Button type="button" onClick={() => setCurrentStep(1)} variant="ghost" className="text-muted-foreground hover:text-primary">
+                                            <Button type="button" onClick={() => setCurrentStep(1)} variant="ghost" className="text-black hover:text-gray-700">
                                                 Back
                                             </Button>
-                                            <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 transition-colors">
+                                            <Button type="submit" className="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 transition-colors">
                                                 Next
                                             </Button>
                                         </div>
@@ -163,12 +163,12 @@ export function ContactSection() {
                                 <>
                                     {isLoading && (
                                         <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10 rounded-2xl">
-                                            <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                                            <Loader2 className="h-10 w-10 animate-spin text-black" />
                                         </div>
                                     )}
                                     <Chatbot onChatComplete={handleChatComplete} isLoading={isLoading} />
                                     <div className="flex justify-start items-center mt-6">
-                                        <Button type="button" onClick={() => setCurrentStep(2)} variant="ghost" className="text-muted-foreground hover:text-primary">
+                                        <Button type="button" onClick={() => setCurrentStep(2)} variant="ghost" className="text-black hover:text-gray-700">
                                             Back
                                         </Button>
                                     </div>

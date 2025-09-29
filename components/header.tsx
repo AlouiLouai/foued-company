@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm shadow-md border-b border-border">
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6">
-        <div className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <svg
             className="h-8 w-8 text-primary"
             fill="currentColor"
@@ -35,7 +35,7 @@ export function Header() {
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"></path>
           </svg>
           <span className="text-2xl font-bold text-primary">Foued Company</span>
-        </div>
+        </a>
         <div className="hidden md:flex items-center gap-8">
           <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="#">
             About Us

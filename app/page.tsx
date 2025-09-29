@@ -18,7 +18,6 @@ export default function Home() {
           <TestimonialsSection />
           <NewsSection />
           <CareersSection />
-          <ContactSection />
         </div>
       </main>
       <Footer />

@@ -1,20 +1,36 @@
 "use client";
 
+import {
+  Paintbrush,
+  Building,
+  Bath,
+  CookingPot,
+  BrickWall,
+  Construction,
+  Home,
+  Layers,
+  PanelTop,
+  Zap,
+  Wrench,
+  Wind,
+  Sprout,
+} from "lucide-react";
+
 export function ServicesSection() {
   const services = [
-    { title: "Painting" },
-    { title: "Facade cleaning" },
-    { title: "Bathroom renovation" },
-    { title: "Kitchen renovation" },
-    { title: "Masonry work" },
-    { title: "Reinforced concrete" },
-    { title: "Roofing" },
-    { title: "Partitioning and insulation" },
-    { title: "Cladding" },
-    { title: "Building electricity" },
-    { title: "Plumbing" },
-    { title: "HVAC" },
-    { title: "Gardening" },
+    { title: "Painting", icon: <Paintbrush className="w-12 h-12 text-primary" /> },
+    { title: "Facade cleaning", icon: <Building className="w-12 h-12 text-primary" /> },
+    { title: "Bathroom renovation", icon: <Bath className="w-12 h-12 text-primary" /> },
+    { title: "Kitchen renovation", icon: <CookingPot className="w-12 h-12 text-primary" /> },
+    { title: "Masonry work", icon: <BrickWall className="w-12 h-12 text-primary" /> },
+    { title: "Reinforced concrete", icon: <Construction className="w-12 h-12 text-primary" /> },
+    { title: "Roofing", icon: <Home className="w-12 h-12 text-primary" /> },
+    { title: "Partitioning and insulation", icon: <Layers className="w-12 h-12 text-primary" /> },
+    { title: "Cladding", icon: <PanelTop className="w-12 h-12 text-primary" /> },
+    { title: "Building electricity", icon: <Zap className="w-12 h-12 text-primary" /> },
+    { title: "Plumbing", icon: <Wrench className="w-12 h-12 text-primary" /> },
+    { title: "HVAC", icon: <Wind className="w-12 h-12 text-primary" /> },
+    { title: "Gardening", icon: <Sprout className="w-12 h-12 text-primary" /> },
   ]
 
   return (
@@ -25,6 +41,7 @@ export function ServicesSection() {
           <div className="marquee-content inline-block">
             {services.concat(services).map((service, index) => (
               <div key={index} className="inline-block w-64 mx-4 text-center">
+                <div className="flex justify-center mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-foreground">{service.title}</h3>
               </div>
             ))}

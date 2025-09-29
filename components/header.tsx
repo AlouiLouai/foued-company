@@ -37,13 +37,13 @@ export function Header() {
           <span className="text-2xl font-bold text-primary">Foued Company</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="#">
+          <a className="text-base font-semibold text-primary transition-colors" href="#">
             About Us
           </a>
-          <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="#">
+          <a className="text-base font-semibold text-primary transition-colors" href="#">
             Services
           </a>
-          <a className="text-base font-semibold text-muted-foreground hover:text-primary transition-colors" href="/contact">
+          <a className="text-base font-semibold text-primary transition-colors" href="/contact">
             Contact
           </a>
           <Button variant="ghost" size="icon" onClick={toggleTheme}>

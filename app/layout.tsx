@@ -25,6 +25,8 @@ export default function RootLayout({
     <html lang="en" className={workSans.variable}>
       <body className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden">
         <LayoutWrapper>{children}</LayoutWrapper>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
       </body>
     </html>
   )

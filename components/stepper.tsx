@@ -14,15 +14,15 @@ export function Stepper({ currentStep, totalSteps }: StepperProps) {
         <div key={step} className="flex items-center">
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center text-white ${
-              step === currentStep ? "bg-indigo-600" : "bg-gray-400"
+              step === currentStep ? "bg-primary" : "bg-muted"
             }`}
           >
             {step}
           </div>
           {index < totalSteps - 1 && (
             <div
-              className={`h-1 w-16 mx-2 ${
-                step < currentStep ? "bg-indigo-600" : "bg-gray-300"
+              className={`h-1 w-24 mx-2 ${
+                step < currentStep ? "bg-primary" : "bg-border"
               }`}
             ></div>
           )}

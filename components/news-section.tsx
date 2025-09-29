@@ -1,3 +1,5 @@
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
+
 export function NewsSection() {
   const newsArticles = [
     {
@@ -20,21 +22,25 @@ export function NewsSection() {
   return (
     <section id="news" className="py-12 md:py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8 md:mb-12">Latest News</h2>
+        <AnimateOnScroll>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8 md:mb-12">Latest News</h2>
+        </AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {newsArticles.map((article, index) => (
-            <div key={index} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <img
-                alt={article.title}
-                className="w-full h-48 object-cover"
-                src={article.image}
-              />
-              <div className="p-6">
-                <p className="text-sm text-muted-foreground mb-2">{article.date}</p>
-                <h3 className="text-lg md:text-xl font-semibold text-foreground mb-4">{article.title}</h3>
-                <a href="#" className="text-primary font-semibold">Read More</a>
+            <AnimateOnScroll key={index} delay={index * 0.2}>
+              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden h-full">
+                <img
+                  alt={article.title}
+                  className="w-full h-48 object-cover"
+                  src={article.image}
+                />
+                <div className="p-6">
+                  <p className="text-sm text-muted-foreground mb-2">{article.date}</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-4">{article.title}</h3>
+                  <a href="#" className="text-primary font-semibold">Read More</a>
+                </div>
               </div>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>

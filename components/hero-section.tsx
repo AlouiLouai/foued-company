@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { AnimateOnScroll } from "@/components/AnimateOnScroll"
 
 export function HeroSection() {
   return (
@@ -10,17 +11,23 @@ export function HeroSection() {
         backgroundBlendMode: 'multiply',
       }}
     >
-      <div className="container mx-auto px-6 text-center text-white animate-fade-in-up">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
-          Building the Future, Together
-        </h1>
-        <p className="text-xl sm:text-xl md:text-2xl max-w-3xl mx-auto text-pretty">
-          With a legacy of excellence and a commitment to innovation, we deliver exceptional construction solutions that
-          shape communities and inspire progress.
-        </p>
-        <Button variant="link" size="lg" className="mt-8 text-lg font-semibold text-white">
-          Learn More <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
+      <div className="container mx-auto px-6 text-center text-white">
+        <AnimateOnScroll animation={{ opacity: 0, y: 100, duration: 1, ease: "power3.out" }}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
+            Building the Future, Together
+            </h1>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation={{ opacity: 0, y: 100, duration: 1, ease: "power3.out" }} delay={0.2}>
+            <p className="text-xl sm:text-xl md:text-2xl max-w-3xl mx-auto text-pretty">
+            With a legacy of excellence and a commitment to innovation, we deliver exceptional construction solutions that
+            shape communities and inspire progress.
+            </p>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation={{ opacity: 0, y: 100, duration: 1, ease: "power3.out" }} delay={0.4}>
+            <Button variant="link" size="lg" className="mt-8 text-lg font-semibold text-white">
+            Learn More <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+        </AnimateOnScroll>
       </div>
     </section>
   )

@@ -1,8 +1,9 @@
 "use client"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import { Stepper } from "@/components/stepper"
+import { Chatbot } from "@/components/contact-form-chatbot"
 
 const COUNTRY_CODES = [
     { code: "+33", country: "France", flag: "🇫🇷" },
@@ -19,9 +20,17 @@ export function ContactSection() {
         phoneNumber: "",
         message: "",
     })
+    const [chatData, setChatData] = useState<{ [key: string]: string }>({})
     const [isLoading, setIsLoading] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [currentStep, setCurrentStep] = useState(1);
+    const successRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (isSubmitted) {
+            successRef.current?.focus();
+        }
+    }, [isSubmitted]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.id]: e.target.value })
@@ -36,13 +45,26 @@ export function ContactSection() {
         setCurrentStep(2);
     };
 
-    const handleFinalSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleNextToChatbot = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!formData.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        setCurrentStep(3);
+    };
+
+    const handleChatComplete = (chatData: { [key: string]: string }) => {
+        setChatData(chatData);
+        handleFinalSubmit();
+    }
+
+    const handleFinalSubmit = async () => {
         setIsLoading(true);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         setIsLoading(false);
         setIsSubmitted(true);
-        console.log("Form submitted with data:", formData);
+        console.log("Form submitted with data:", { ...formData, chatData });
     };
 
     return (
@@ -50,20 +72,20 @@ export function ContactSection() {
             <div className="container mx-auto px-4 max-w-2xl">
                 <div className="bg-card p-8 md:p-12 rounded-2xl shadow-lg border border-border">
                     {isSubmitted ? (
-                        <div className="text-center p-8">
+                        <div className="text-center p-8" ref={successRef} tabIndex={-1}>
                             <h3 className="text-2xl font-bold text-primary mb-4">Thank you!</h3>
-                            <p className="text-muted-foreground">Your message has been sent successfully. We'll get back to you soon.</p>
+                            <p className="text-muted-foreground">Your message has been sent successfully. We\'ll get back to you soon.</p>
                         </div>
                     ) : (
                         <>
-                            <Stepper currentStep={currentStep} totalSteps={2} />
+                            <Stepper currentStep={currentStep} totalSteps={3} />
                             <h3 className="text-2xl font-bold text-center mb-2">
-                                {currentStep === 1 ? "Your Details" : "Your Message"}
+                                {currentStep === 1 ? "Your Details" : currentStep === 2 ? "Your Message" : "Additional Information"}
                             </h3>
                             <p className="text-muted-foreground text-center mb-8">
-                                {currentStep === 1 ? "Let's start with some basic information." : "Almost there! What can we help you with?"}
+                                {currentStep === 1 ? "Let's start with some basic information." : currentStep === 2 ? "Almost there! What can we help you with?" : "Please answer a few more questions."}
                             </p>
-                            <form onSubmit={currentStep === 1 ? handleNext : handleFinalSubmit} className="grid grid-cols-1 gap-6">
+                            <form onSubmit={currentStep === 1 ? handleNext : handleNextToChatbot} className="grid grid-cols-1 gap-6">
                                 {currentStep === 1 && (
                                     <>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -108,14 +130,23 @@ export function ContactSection() {
                                             <Button type="button" onClick={() => setCurrentStep(1)} variant="ghost" className="text-muted-foreground hover:text-primary">
                                                 Back
                                             </Button>
-                                            <Button type="submit" disabled={isLoading} className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 transition-colors">
-                                                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                                                {isLoading ? "Sending..." : "Submit"}
+                                            <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 transition-colors">
+                                                Next
                                             </Button>
                                         </div>
                                     </>
                                 )}
                             </form>
+                            {currentStep === 3 && (
+                                <>
+                                    <Chatbot onChatComplete={handleChatComplete} />
+                                    <div className="flex justify-start items-center mt-6">
+                                        <Button type="button" onClick={() => setCurrentStep(2)} variant="ghost" className="text-muted-foreground hover:text-primary">
+                                            Back
+                                        </Button>
+                                    </div>
+                                </>
+                            )}
                         </>
                     )}
                 </div>

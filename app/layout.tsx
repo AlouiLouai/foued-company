@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Work_Sans } from "next/font/google"
 import "./globals.css"
-import { Chatbot } from "@/components/chatbot"
+import { LayoutWrapper } from "@/components/layout-wrapper"
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -24,8 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={workSans.variable}>
       <body className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden">
-        {children}
-        <Chatbot />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   )

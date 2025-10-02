@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Service } from "@/lib/services";
 import { motion } from "framer-motion";
-import { X, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 interface ServiceModalProps {

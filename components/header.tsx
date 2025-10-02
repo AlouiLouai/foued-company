@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 
@@ -33,13 +34,13 @@ export function Header() {
     >
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 bg-transparent">
         <a href="/" className="flex items-center gap-3">
-          <img src="/app_logo.png" alt="Renovexium Logo" className="h-14 w-auto" />
+          <Image src="/app_logo.png" alt="Renovexium Logo" width={100} height={56} />
         </a>
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-base font-semibold text-black transition-colors" href="#">
+          <a className="text-base font-semibold text-black transition-colors" href="/about">
             About Us
           </a>
-          <a className="text-base font-semibold text-black transition-colors" href="#">
+          <a className="text-base font-semibold text-black transition-colors" href="#services">
             Services
           </a>
           <a className="text-base font-semibold text-black transition-colors" href="/contact">
@@ -74,10 +75,10 @@ export function Header() {
               <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
             </svg>
           </button>
-          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>
+          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="/about" onClick={() => setIsMobileMenuOpen(false)}>
             About Us
           </a>
-          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>
+          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#services" onClick={() => setIsMobileMenuOpen(false)}>
             Services
           </a>
           <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>

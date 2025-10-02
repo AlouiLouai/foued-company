@@ -5,10 +5,11 @@ interface ContactFormEmailProps {
   name: string;
   email: string;
   message: string;
+  phoneNumber: string;
   discussion: string; // This is a JSON string
 }
 
-export const ContactFormEmail = ({ name, email, message, discussion }: ContactFormEmailProps) => {
+export const ContactFormEmail = ({ name, email, message, phoneNumber, discussion }: ContactFormEmailProps) => {
   let parsedDiscussion: { [key: string]: string } = {};
   try {
     parsedDiscussion = JSON.parse(discussion);
@@ -30,6 +31,7 @@ export const ContactFormEmail = ({ name, email, message, discussion }: ContactFo
             <Hr style={hr} />
             <Text style={paragraph}><strong>Name:</strong> {name}</Text>
             <Text style={paragraph}><strong>Email:</strong> {email}</Text>
+            <Text style={paragraph}><strong>Phone Number:</strong> {phoneNumber}</Text>
             <Text style={paragraph}><strong>Message:</strong></Text>
             <Text style={messageParagraph}>{message}</Text>
             <Hr style={hr} />

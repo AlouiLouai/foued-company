@@ -6,9 +6,9 @@ import { render } from '@react-email/render';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, message, discussion } = await req.json();
+    const { name, email, message, phoneNumber, discussion } = await req.json();
 
-    if (!name || !email || !message || !discussion) {
+    if (!name || !email || !message || !phoneNumber || !discussion) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    const emailHtml = await render(ContactFormEmail({ name, email, message, discussion }));
+    const emailHtml = await render(ContactFormEmail({ name, email, message, phoneNumber, discussion }));
 
     const mailOptions = {
       from: email,

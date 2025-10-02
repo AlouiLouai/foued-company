@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Send } from "lucide-react"
+import { CountryCodeSelect } from "./country-code-select"
+import { countryCodes } from "@/lib/country-codes"
 
 interface ChatbotProps {
   onChatComplete: (chatData: { [key: string]: string }) => void;
@@ -29,7 +31,6 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
   const [chatData, setChatData] = useState<{ [key: string]: string }>({})
   const [isTyping, setIsTyping] = useState(false)
 
-
   useEffect(() => {
     setIsTyping(true)
     setTimeout(() => {
@@ -38,16 +39,16 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
     }, 1000)
   }, [])
 
-
-
   const handleSendMessage = () => {
     if (!userInput.trim()) return
 
-    const newMessages = [...messages, { text: userInput, sender: "user" as "user" }]
+    const messageText = userInput;
+
+    const newMessages = [...messages, { text: messageText, sender: "user" as "user" }]
     setMessages(newMessages)
 
     const questionKey = questions[currentQuestionIndex]; // Use the full question as a key
-    const newChatData = { ...chatData, [questionKey]: userInput }
+    const newChatData = { ...chatData, [questionKey]: messageText }
     setChatData(newChatData)
 
     setUserInput("")
@@ -88,15 +89,15 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
 
       </div>
       <div className="flex items-center">
-        <input
-          type="text"
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
-          className="w-full p-2 rounded-lg bg-white/50 border-black border focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none"
-          placeholder="Your response..."
-          disabled={isLoading}
-        />
+          <input
+            type="text"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+            className="w-full p-2 rounded-lg bg-white/50 border-black border focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none"
+            placeholder="Your response..."
+            disabled={isLoading}
+          />
         <Button onClick={handleSendMessage} variant="ghost" size="icon" className="ml-2 text-black" disabled={isLoading}>
           <Send className="h-6 w-6" />
         </Button>

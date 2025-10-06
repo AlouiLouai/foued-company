@@ -1,0 +1,48 @@
+{
+  "Header": {
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "HeroSection": {
+    "title": "Construire l'avenir, ensemble",
+    "subtitle": "Avec un héritage d'excellence et un engagement envers l'innovation, nous fournissons des solutions de construction exceptionnelles qui façonnent les communautés et inspirent le progrès.",
+    "contact_us": "Contactez-nous"
+  },
+  "ServicesSection": {
+    "title": "Nos Services",
+    "subtitle": "Nous offrons une large gamme de services de construction pour répondre à vos besoins."
+  },
+  "CareersSection": {
+    "title": "Carrières",
+    "subtitle": "Rejoignez notre équipe et construisez votre avenir avec nous.",
+    "open_positions": "Postes à pourvoir"
+  },
+  "Footer": {
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "copyright": "© 2024 Renovexium. Tous droits réservés."
+  },
+  "AboutPage": {
+    "title": "À propos de notre entreprise",
+    "mission_title": "Notre mission",
+    "mission_text": "Chez Renovexium, notre mission est de transformer les espaces et de dépasser les attentes grâce à un savoir-faire exceptionnel, des solutions innovantes et un dévouement indéfectible à la satisfaction du client. Nous croyons en la construction de relations durables basées sur la confiance, la transparence et le respect mutuel.",
+    "vision_title": "Notre vision",
+    "vision_text": "Être la première entreprise de construction et de rénovation de Penovexium, reconnue pour notre engagement envers la qualité, la durabilité et la création d'espaces qui inspirent et perdurent. Nous envisageons un avenir où chaque projet contribue positivement à notre communauté et à notre environnement.",
+    "why_choose_us_title": "Pourquoi nous choisir?",
+    "why_choose_us_text": "Avec des années d'expérience, une équipe de professionnels qualifiés et une passion pour la perfection, Renovexium est votre partenaire de confiance pour tous les besoins de construction et de rénovation. Nous sommes fiers de terminer les projets à temps, de respecter le budget et d'offrir un service client inégalé.",
+    "why_choose_us_list": [
+      "Professionnels expérimentés et certifiés",
+      "Engagement envers la qualité et la sécurité",
+      "Solutions innovantes et durables",
+      "Communication transparente et prix équitables",
+      "Satisfaction client garantie"
+    ],
+    "back_to_home": "Retour à l'accueil"
+  },
+  "ContactPage": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes là pour vous aider. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais."
+  }
+}

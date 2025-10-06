@@ -1,21 +1,30 @@
 "use client"
 import Image from "next/image";
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { useTranslations, useLocale } from "next-intl"
+import { usePathname, useRouter } from "next/navigation"
+import Link from "next/link"
 
 export function Header() {
+  const t = useTranslations("Header")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const pathname = usePathname()
+  const router = useRouter()
+  const locale = useLocale()
+
+  const handleLanguageChange = (lang: string) => {
+    const newPath = `/${lang}${pathname.substring(3)}`
+    router.replace(newPath)
+  }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const handleScroll = () => {
         if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          // Scrolling down
           setIsVisible(false)
         } else {
-          // Scrolling up
           setIsVisible(true)
         }
         setLastScrollY(window.scrollY)
@@ -33,19 +42,23 @@ export function Header() {
       className={`fixed top-0 inset-x-0 z-50 bg-transparent transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 bg-transparent">
-        <a href="/" className="flex items-center gap-3">
+        <Link href={`/${locale}/`} className="flex items-center gap-3">
           <Image src="/app_logo.png" alt="Renovexium Logo" width={100} height={56} className="w-auto" />
-        </a>
+        </Link>
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-base font-semibold text-black transition-colors" href="/about">
-            About Us
-          </a>
-          <a className="text-base font-semibold text-black transition-colors" href="#services">
-            Services
-          </a>
-          <a className="text-base font-semibold text-black transition-colors" href="/contact">
-            Contact
-          </a>
+          <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/about`}>
+            {t("about")}
+          </Link>
+          <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/#services`}>
+            {t("services")}
+          </Link>
+          <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/contact`}>
+            {t("contact")}
+          </Link>
+          <div className="flex gap-2">
+            <button onClick={() => handleLanguageChange("en")} className="text-base font-semibold text-black">EN</button>
+            <button onClick={() => handleLanguageChange("fr")} className="text-base font-semibold text-black">FR</button>
+          </div>
         </div>
         <div className="flex items-center md:hidden">
           <button className="text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>            <svg
@@ -75,18 +88,18 @@ export function Header() {
               <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
             </svg>
           </button>
-          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="/about" onClick={() => setIsMobileMenuOpen(false)}>
-            About Us
-          </a>
-          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#services" onClick={() => setIsMobileMenuOpen(false)}>
-            Services
-          </a>
-          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/about`} onClick={() => setIsMobileMenuOpen(false)}>
+            {t("about")}
+          </Link>
+          <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/#services`} onClick={() => setIsMobileMenuOpen(false)}>
+            {t("services")}
+          </Link>
+          <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/#`} onClick={() => setIsMobileMenuOpen(false)}>
             Team
-          </a>
-          <a className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href="#" onClick={() => setIsMobileMenuOpen(false)}>
-            Contact
-          </a>
+          </Link>
+          <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/contact`} onClick={() => setIsMobileMenuOpen(false)}>
+            {t("contact")}
+          </Link>
         </div>
       )}
     </header>

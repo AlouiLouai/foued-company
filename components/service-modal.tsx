@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Service } from "@/lib/services";
+import { Service } from "@/lib/translated-services";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useRef } from "react";

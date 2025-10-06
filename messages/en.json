@@ -1,0 +1,48 @@
+{
+  "Header": {
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "HeroSection": {
+    "title": "Building the Future, Together",
+    "subtitle": "With a legacy of excellence and a commitment to innovation, we deliver exceptional construction solutions that shape communities and inspire progress.",
+    "contact_us": "Contact Us"
+  },
+  "ServicesSection": {
+    "title": "Our Services",
+    "subtitle": "We offer a wide range of construction services to meet your needs."
+  },
+  "CareersSection": {
+    "title": "Careers",
+    "subtitle": "Join our team and build your future with us.",
+    "open_positions": "Open Positions"
+  },
+  "Footer": {
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "copyright": "© 2024 Renovexium. All rights reserved."
+  },
+  "AboutPage": {
+    "title": "About Our Company",
+    "mission_title": "Our Mission",
+    "mission_text": "At Renovexium, our mission is to transform spaces and exceed expectations through exceptional craftsmanship, innovative solutions, and unwavering dedication to client satisfaction. We believe in building lasting relationships based on trust, transparency, and mutual respect.",
+    "vision_title": "Our Vision",
+    "vision_text": "To be the leading construction and renovation company in Penovexium, recognized for our commitment to quality, sustainability, and creating spaces that inspire and endure. We envision a future where every project contributes positively to our community and environment.",
+    "why_choose_us_title": "Why Choose Us?",
+    "why_choose_us_text": "With years of experience, a team of skilled professionals, and a passion for perfection, Renovexium is your trusted partner for all construction and renovation needs. We pride ourselves on timely project completion, adherence to budget, and unparalleled customer service.",
+    "why_choose_us_list": [
+      "Experienced and certified professionals",
+      "Commitment to quality and safety",
+      "Innovative and sustainable solutions",
+      "Transparent communication and fair pricing",
+      "Guaranteed client satisfaction"
+    ],
+    "back_to_home": "Back to Home"
+  },
+  "ContactPage": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help. Fill out the form below and we'll get back to you as soon as possible."
+  }
+}

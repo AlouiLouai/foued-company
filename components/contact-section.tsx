@@ -69,7 +69,6 @@ export function ContactSection() {
   }) => {
     setIsLoading(true);
     try {
-      console.log("Chat Data being sent:", chatData);
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {

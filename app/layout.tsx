@@ -23,14 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={workSans.variable}>
-      <body className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden"
-        style={{
-          backgroundImage: `url("/construction.png")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
+      <body className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden body-background">
         <LayoutWrapper>{children}</LayoutWrapper>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         

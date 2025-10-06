@@ -164,3 +164,10 @@
     transform: translateX(-50%);
   }
 }
+
+.body-background {
+  background-image: url("/construction.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

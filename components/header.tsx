@@ -34,7 +34,7 @@ export function Header() {
     >
       <nav className="container mx-auto flex items-center justify-between px-4 py-3 md:px-6 bg-transparent">
         <a href="/" className="flex items-center gap-3">
-          <Image src="/app_logo.png" alt="Renovexium Logo" width={100} height={56} />
+          <Image src="/app_logo.png" alt="Renovexium Logo" width={100} height={56} className="w-auto" />
         </a>
         <div className="hidden md:flex items-center gap-8">
           <a className="text-base font-semibold text-black transition-colors" href="/about">

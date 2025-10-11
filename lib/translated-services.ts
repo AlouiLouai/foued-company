@@ -63,7 +63,7 @@ const frServices: Service[] = [
     description: "Assurez un débit d'eau impeccable dans toute votre propriété avec nos services de plomberie experts. Notre équipe certifiée s'engage dans l'installation, la réparation et l'entretien précis de tous les systèmes d'eau et de drainage. Nous nous spécialisons dans un service complet, de la détection de fuites détaillée et de l'installation de luminaires aux remplacements complets de systèmes pour les nouvelles constructions et les rénovations. Nous nous assurons que chaque projet de plomberie offre une fiabilité inégalée, une efficacité de l'eau et une conformité stricte aux normes de santé et de sécurité, protégeant votre bâtiment contre les défaillances essentielles de l'infrastructure.",
   },
   {
-    title: "CVAC",
+    title: "CVC",
     image: "/services/hvac.jpg",
     description: "Maximisez le confort et la qualité de l'air avec nos services CVC experts. Nos techniciens certifiés s'engagent à concevoir, installer et entretenir des systèmes de climatisation à haute efficacité pour toute taille de propriété. Nous nous spécialisons dans les solutions complètes de chauffage, de refroidissement et de ventilation avancée, garantissant des performances constantes et une circulation d'air optimale. Nous nous assurons que chaque projet CVC offre une efficacité énergétique supérieure, une régulation de température fiable et un environnement intérieur sain, réduisant considérablement vos coûts d'exploitation et améliorant le confort des occupants.",
   },

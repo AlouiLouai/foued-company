@@ -1,8 +1,13 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { AnimateOnScroll } from "@/components/AnimateOnScroll"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function HeroSection() {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
+
   return (
     <section
       className="relative  min-h-[99vh] flex items-center justify-center bg-cover bg-center"
@@ -23,9 +28,11 @@ export function HeroSection() {
             </p>
         </AnimateOnScroll>
         <AnimateOnScroll animation={{ opacity: 0, y: 50, duration: 1, ease: "power3.out" }} delay={0.6}>
+          <Link href={`/${locale}/contact`}>
             <Button variant="link" size="lg" className="mt-8 text-lg font-semibold text-white">
-            Contact Us
+              Contact Us
             </Button>
+          </Link>
         </AnimateOnScroll>
       </div>
     </section>

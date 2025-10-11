@@ -8,6 +8,11 @@ export interface Service {
 
 const frServices: Service[] = [
   {
+    title: "Etude de Projects Avancée : La Rénovation de Précision",
+    image: "/services/Advanced_Project_Study_Precision_Renovation.jpg", // Correct image
+    description: "Notre service d'étude de projets est le socle detouterénovation réussie. Chez Renovexium, nous exploitonsdestechnologies de pointe pour éliminer les incertitudesetgarantir une exécution sans faille. Nous débutonsparlacapture de l'existant via les techniques de nuagesdepoints,assurant un relevé numérique du bâtiment d'uneprécisionmillimétrique. Ces données ultra-précises sont ensuiteimmédiatement intégrées et modélisées dans un environnement BIM (Building Information Modeling). Cette approche de modélisation avancée nous permet non seulement de visualiser votre projet en 3D intelligente, mais surtout d'optimiser la planification, d'anticiper les conflits techniques et de maîtriser rigoureusement les coûts et les délais. Avec le BIM, nous transformons la complexité de la rénovation en clarté, en efficacité et en confiance totale.",
+  },
+  {
     title: "Peinture",
     image: "/services/painting.jpg",
     description: "Nous fournissons des services de peinture experts à Penovexium, spécialisés dans les projets intérieurs et extérieurs pour les espaces résidentiels et commerciaux. Notre équipe s'engage à fournir des finitions propres et durables en utilisant des matériaux de haute qualité et des techniques précises. De la préparation de la surface à la couche finale, nous nous assurons que chaque détail est traité avec soin, apportant une beauté et une valeur durables à votre propriété.",

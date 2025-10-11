@@ -47,13 +47,13 @@ export function Header() {
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/about`}>
-            About
+            {locale === 'fr' ? 'À propos' : 'About'}
           </Link>
           <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/#services`}>
-            Services
+            {locale === 'fr' ? 'Services' : 'Services'}
           </Link>
           <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/contact`}>
-            Contact
+            {locale === 'fr' ? 'Contact' : 'Contact'}
           </Link>
           <div className="relative w-32">
             <LanguageSelect
@@ -92,16 +92,16 @@ export function Header() {
             </svg>
           </button>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/about`} onClick={() => setIsMobileMenuOpen(false)}>
-            About
+            {locale === 'fr' ? 'À propos' : 'About'}
           </Link>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/#services`} onClick={() => setIsMobileMenuOpen(false)}>
-            Services
+            {locale === 'fr' ? 'Services' : 'Services'}
           </Link>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/#`} onClick={() => setIsMobileMenuOpen(false)}>
-            Team
+            {locale === 'fr' ? 'Équipe' : 'Team'}
           </Link>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/contact`} onClick={() => setIsMobileMenuOpen(false)}>
-            Contact
+            {locale === 'fr' ? 'Contact' : 'Contact'}
           </Link>
         </div>
       )}

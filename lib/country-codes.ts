@@ -1,4 +1,4 @@
-import { FR, BE, CH } from "country-flag-icons/react/3x2";
+import { FR, DE, CH } from "country-flag-icons/react/3x2";
 
 export interface Country {
   code: string;
@@ -8,6 +8,6 @@ export interface Country {
 
 export const countryCodes: Country[] = [
   { code: "+33", country: "FR", flag: FR },
-  { code: "+32", country: "BE", flag: BE },
+  { code: "+49", country: "DE", flag: DE }, // Changed from Belgium to Germany
   { code: "+41", country: "CH", flag: CH },
 ];

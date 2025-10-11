@@ -6,6 +6,11 @@ export interface Service {
 
 export const services: Service[] = [
   {
+    title: "Advanced Project Study: Precision Renovation",
+    image: "/services/Advanced_Project_Study_Precision_Renovation.jpg",
+    description: "Our project study service is the foundation of everysuccessful renovation. At Renovexium, we leverage cutting- edge technologies to eliminate uncertainty and ensureflawless execution. We start by capturing the existingstructure using Point Cloud techniques, guaranteeing adigital survey of the building with millimetric precision. This ultra-precise data is then immediately integrated andmodeled within a BIM (Building Information Modeling)environment. This advanced modeling approach allows usnot only to visualize your project in intelligent 3D, but aboveall, to optimize planning, anticipate technical conflicts, andrigorously control costs and deadlines. With BIM, wetransform the complexity of renovation into clarity, efficiency, and total confidence.",
+  },
+  {
     title: "Painting",
     image: "/services/painting.jpg",
     description:
@@ -62,7 +67,7 @@ export const services: Service[] = [
     description: "Ensure flawless water flow throughout your property withourexpertPlumbing Services. Our certified team is committed tothepreciseinstallation, repair, and maintenance of all water and drainagesystems.We specialize in comprehensive service, fromdetailedleakdetectionandfixture installation to full system replacements for bothnewbuildsandrenovations. We ensure every plumbing project delivers unmatchedreliability, water efficiency, and strict compliance with healthandsafetystandards, protecting your building from essential infrastructurefailures",
   },
   {
-    title: "HVAC",
+    title: "CVC",
     image: "/services/hvac.jpg",
     description: "Maximize comfort and air quality with our expert HVACServices.Ourcertified technicians are committed to designing, installing, andmaintaining high-efficiency climate control systems for anypropertysize.We specialize in comprehensive solutions for heating, cooling, andadvanced ventilation, ensuring consistent performance andoptimal aircirculation. We ensure every HVAC project delivers superior energyefficiency, reliable temperature regulation, and a healthy indoorenvironment, significantly reducing your operating costs andenhancingoccupant comfort.",
   },

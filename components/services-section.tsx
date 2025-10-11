@@ -26,7 +26,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8 md:mb-12">
-            Our Services
+            {locale === 'fr' ? 'Nos Services' : 'Our Services'}
           </h2>
         </AnimateOnScroll>
         <AnimateOnScroll delay={0.1}>

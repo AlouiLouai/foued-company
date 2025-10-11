@@ -1,19 +1,17 @@
 "use client"
 import Image from "next/image";
 import { useState, useEffect } from "react"
-import { useTranslations, useLocale } from "next-intl"
 import { usePathname, useRouter } from "next/navigation"
 import Link from "next/link"
 
 export function Header() {
-  const t = useTranslations("Header")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
-  const locale = useLocale()
+  const locale = pathname.split('/')[1] || 'en'
 
   const handleLanguageChange = (lang: string) => {
     const newPath = `/${lang}${pathname.substring(3)}`
@@ -49,13 +47,13 @@ export function Header() {
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/about`}>
-            {t("about")}
+            About
           </Link>
           <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/#services`}>
-            {t("services")}
+            Services
           </Link>
           <Link className="text-base font-semibold text-black transition-colors" href={`/${locale}/contact`}>
-            {t("contact")}
+            Contact
           </Link>
           <div className="relative">
             <button
@@ -120,16 +118,16 @@ export function Header() {
             </svg>
           </button>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/about`} onClick={() => setIsMobileMenuOpen(false)}>
-            {t("about")}
+            About
           </Link>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/#services`} onClick={() => setIsMobileMenuOpen(false)}>
-            {t("services")}
+            Services
           </Link>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/#`} onClick={() => setIsMobileMenuOpen(false)}>
             Team
           </Link>
           <Link className="text-2xl font-medium text-foreground hover:text-primary transition-colors" href={`/${locale}/contact`} onClick={() => setIsMobileMenuOpen(false)}>
-            {t("contact")}
+            Contact
           </Link>
         </div>
       )}

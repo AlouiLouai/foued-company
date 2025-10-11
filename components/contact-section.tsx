@@ -8,12 +8,13 @@ import { countryCodes } from "@/lib/country-codes";
 import { CountryCodeSelect } from "@/components/country-code-select";
 
 export function ContactSection() {
+  const france = countryCodes.find((c) => c.country === "FR") || countryCodes[0];
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    phoneCountryCode: countryCodes[0].country,
-    phoneNumber: "",
+    phoneCountryCode: france.country,
+    phoneNumber: france.code,
     message: "",
   });
   const [chatData, setChatData] = useState<{ [key: string]: string }>({});
@@ -21,6 +22,19 @@ export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const successRef = useRef<HTMLDivElement>(null);
+
+  const handleCountryChange = (country: any) => {
+    const oldCountryCode = countryCodes.find(c => c.country === formData.phoneCountryCode)?.code || '';
+    const numberWithoutCode = formData.phoneNumber.startsWith(oldCountryCode)
+      ? formData.phoneNumber.substring(oldCountryCode.length)
+      : formData.phoneNumber;
+
+    setFormData({
+      ...formData,
+      phoneCountryCode: country.country,
+      phoneNumber: country.code + numberWithoutCode,
+    });
+  };
 
   useEffect(() => {
     if (isSubmitted) {
@@ -194,14 +208,7 @@ export function ContactSection() {
                           <CountryCodeSelect
                             countryCodes={countryCodes}
                             selectedCode={formData.phoneCountryCode}
-                            onChange={(country) => {
-                              const newPhoneNumber = country.code + formData.phoneNumber.replace(/^\+\d+/, '');
-                              setFormData({
-                                ...formData,
-                                phoneCountryCode: country.country,
-                                phoneNumber: newPhoneNumber,
-                              });
-                            }}
+                            onChange={handleCountryChange}
                           />
                         </div>
                         <input

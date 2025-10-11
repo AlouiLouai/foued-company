@@ -1,10 +1,6 @@
 import { Facebook, Linkedin, Instagram } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTranslations } from "next-intl";
 
 export function Footer() {
-  const t = useTranslations("Footer");
-
   return (
     <footer className="bg-transparent">
       <div className="container mx-auto px-12 py-12">
@@ -21,7 +17,7 @@ export function Footer() {
               <Instagram className="w-6 h-6" />
             </a>
           </div>
-          <p className="mb-2 md:mb-0">{t("copyright")}</p>
+          <p className="mb-2 md:mb-0">© 2024 Renovexium. All rights reserved.</p>
         </div>
       </div>
     </footer>

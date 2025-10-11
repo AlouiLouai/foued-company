@@ -8,7 +8,7 @@ export interface Service {
 
 const frServices: Service[] = [
   {
-    title: "Etude de Projects Avancée : La Rénovation de Précision",
+    title: "Etude des Projets Avancés : La Rénovation de Précision",
     image: "/services/Advanced_Project_Study_Precision_Renovation.jpg", // Correct image
     description:
       "Notre service d'étude de projets est le socle de tout erénovation réussie. Chez Renovexium, nous exploitons des technologies de pointe pour éliminer les incertitudes et garantir une exécution sans faille. Nous débutons par la capture de l'existant via les techniques de nuages de points, assurant un relevé numérique du bâtiment d'une précision millimétrique. Ces données ultra-précises sont ensuite immédiatement intégrées et modélisées dans un environnement BIM (Building Information Modeling). Cette approche de modélisation avancée nous permet non seulement de visualiser votre projet en 3D intelligente, mais surtout d'optimiser la planification, d'anticiper les conflits techniques et de maîtriser rigoureusement les coûts et les délais. Avec le BIM, nous transformons la complexité de la rénovation en clarté, en efficacité et en confiance totale.",

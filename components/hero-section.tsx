@@ -1,6 +1,5 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
 import { AnimateOnScroll } from "@/components/AnimateOnScroll"
 import { useTranslations } from "next-intl"
 

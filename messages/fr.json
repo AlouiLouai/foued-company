@@ -44,5 +44,44 @@
   "ContactPage": {
     "title": "Contactez-nous",
     "subtitle": "Nous sommes là pour vous aider. Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais."
+  },
+  "ContactSection": {
+    "thank_you_title": "Merci!",
+    "thank_you_message": "Votre message a été envoyé avec succès. Nous vous répondrons bientôt.",
+    "step1_title": "Vos coordonnées",
+    "step1_subtitle": "Commençons par quelques informations de base.",
+    "step2_title": "Votre message",
+    "step2_subtitle": "Presque là! Comment pouvons-nous vous aider?",
+    "step3_title": "Informations supplémentaires",
+    "step3_subtitle": "Veuillez répondre à quelques questions supplémentaires.",
+    "first_name_label": "Prénom",
+    "first_name_placeholder": "Jean",
+    "last_name_label": "Nom",
+    "last_name_placeholder": "Dupont",
+    "email_label": "E-mail",
+    "email_placeholder": "jean.dupont@example.com",
+    "phone_number_label": "Numéro de téléphone",
+    "phone_number_placeholder": "12 34 56 78",
+    "next_button": "Suivant",
+    "back_button": "Retour",
+    "message_label": "Message",
+    "message_placeholder": "Comment pouvons-nous vous aider aujourd'hui?",
+    "sending_message": "Envoi de votre message...",
+    "alert_fill_fields": "Veuillez remplir tous les champs obligatoires.",
+    "alert_send_failed": "Échec de l'envoi de votre message. Veuillez réessayer plus tard."
+  },
+  "Chatbot": {
+    "greeting": "Bonjour! Je suis votre assistant virtuel. Je suis là pour vous aider avec votre demande. Quel type de service vous intéresse?",
+    "question1": "Quel est votre budget pour ce projet?",
+    "question2": "Quel est votre délai préféré pour le projet?",
+    "question3": "Avez-vous des exigences ou des préférences spécifiques?",
+    "submit_button": "Soumettre",
+    "next_button": "Suivant",
+    "previous_button": "Précédent"
+  },
+  "Stepper": {
+    "step1": "Détails",
+    "step2": "Message",
+    "step3": "Chatbot"
   }
 }

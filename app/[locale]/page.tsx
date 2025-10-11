@@ -12,10 +12,10 @@ export default function Home() {
     <div className="text-foreground font-display">
       <Header />
       <main className="pt-20">
-        <HeroSection key={locale} />
+        <HeroSection />
         <div className="container mx-auto px-6">
-          <ServicesSection key={locale} />
-          <CareersSection key={locale} />
+          <ServicesSection />
+          <CareersSection />
         </div>
       </main>
       <Footer />

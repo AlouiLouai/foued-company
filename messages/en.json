@@ -44,5 +44,44 @@
   "ContactPage": {
     "title": "Contact Us",
     "subtitle": "We're here to help. Fill out the form below and we'll get back to you as soon as possible."
+  },
+  "ContactSection": {
+    "thank_you_title": "Thank you!",
+    "thank_you_message": "Your message has been sent successfully. We'll get back to you soon.",
+    "step1_title": "Your Details",
+    "step1_subtitle": "Let's start with some basic information.",
+    "step2_title": "Your Message",
+    "step2_subtitle": "Almost there! What can we help you with?",
+    "step3_title": "Additional Information",
+    "step3_subtitle": "Please answer a few more questions.",
+    "first_name_label": "First Name",
+    "first_name_placeholder": "John",
+    "last_name_label": "Last Name",
+    "last_name_placeholder": "Doe",
+    "email_label": "Email",
+    "email_placeholder": "john.doe@example.com",
+    "phone_number_label": "Phone Number",
+    "phone_number_placeholder": "12 34 56 78",
+    "next_button": "Next",
+    "back_button": "Back",
+    "message_label": "Message",
+    "message_placeholder": "How can we assist you today?",
+    "sending_message": "Sending your message...",
+    "alert_fill_fields": "Please fill in all required fields.",
+    "alert_send_failed": "Failed to send your message. Please try again later."
+  },
+  "Chatbot": {
+    "greeting": "Hello! I'm your virtual assistant. I'm here to help you with your inquiry. What type of service are you interested in?",
+    "question1": "What is your budget for this project?",
+    "question2": "What is your preferred timeline for the project?",
+    "question3": "Do you have any specific requirements or preferences?",
+    "submit_button": "Submit",
+    "next_button": "Next",
+    "previous_button": "Previous"
+  },
+  "Stepper": {
+    "step1": "Details",
+    "step2": "Message",
+    "step3": "Chatbot"
   }
 }

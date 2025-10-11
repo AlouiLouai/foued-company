@@ -5,12 +5,12 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 import { useState } from "react";
 import { ServiceModal } from "./service-modal";
 import { getTranslatedServices, Service } from "@/lib/translated-services";
-import { useTranslations, useLocale } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export function ServicesSection() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const t = useTranslations("ServicesSection");
-  const locale = useLocale();
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
   const services = getTranslatedServices(locale);
 
   const openModal = (service: Service) => {
@@ -26,7 +26,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-4">
         <AnimateOnScroll>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8 md:mb-12">
-            {t("title")}
+            {locale === 'fr' ? 'Nos Services' : 'Our Services'}
           </h2>
         </AnimateOnScroll>
         <AnimateOnScroll delay={0.1}>

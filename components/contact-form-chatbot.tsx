@@ -2,29 +2,37 @@
 import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Send } from "lucide-react"
-import { CountryCodeSelect } from "./country-code-select"
-import { countryCodes } from "@/lib/country-codes"
+import { usePathname } from "next/navigation";
 
 interface ChatbotProps {
   onChatComplete: (chatData: { [key: string]: string }) => void;
   isLoading: boolean;
 }
 
-const questions = [
-  "To start, could you tell us which service you are interested in?",
-  "Great! What is your estimated budget for this project?",
-  "Thanks. Is there any other information you'd like to share?",
-]
-
-const TypingIndicator = () => (
-  <div className="flex items-center space-x-1 p-2">
-    <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-    <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-    <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></span>
-  </div>
-)
-
 export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
+
+  const questions = locale === 'fr' ? [
+    "Pour commencer, pourriez-vous nous dire quel service vous intéresse ?",
+    "Super ! Quel est votre budget estimé pour ce projet ?",
+    "Merci. Y a-t-il d'autres informations que vous aimeriez partager ?",
+  ] : [
+    "To start, could you tell us which service you are interested in?",
+    "Great! What is your estimated budget for this project?",
+    "Thanks. Is there any other information you'd like to share?",
+  ];
+
+  const placeholder = locale === 'fr' ? "Votre réponse..." : "Your response...";
+
+  const TypingIndicator = () => (
+    <div className="flex items-center space-x-1 p-2">
+      <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+      <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+      <span className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></span>
+    </div>
+  );
+
   const [messages, setMessages] = useState<{ text: string; sender: "bot" | "user" }[]>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [userInput, setUserInput] = useState("")
@@ -95,7 +103,7 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
             onChange={(e) => setUserInput(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
             className="w-full p-2 rounded-lg bg-white/50 border-black border focus:ring-2 focus:ring-black focus:border-transparent transition-colors outline-none"
-            placeholder="Your response..."
+            placeholder={placeholder}
             disabled={isLoading}
           />
         <Button onClick={handleSendMessage} variant="ghost" size="icon" className="ml-2 text-black" disabled={isLoading}>

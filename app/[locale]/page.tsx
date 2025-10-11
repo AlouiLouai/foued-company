@@ -3,11 +3,8 @@ import { HeroSection } from "@/components/hero-section"
 import { Footer } from "@/components/footer"
 import { ServicesSection } from "@/components/services-section"
 import { CareersSection } from "@/components/careers-section"
-import { useLocale } from "next-intl"
 
 export default function Home() {
-  const locale = useLocale()
-
   return (
     <div className="text-foreground font-display">
       <Header />

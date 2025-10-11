@@ -1,9 +1,14 @@
+"use client"
 import { Facebook, Linkedin, Instagram } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
-  const t = useTranslations("Footer");
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
+
+  const copyrightText = locale === 'fr' 
+    ? "© 2025 Renovexium. Tous droits réservés."
+    : "© 2025 Renovexium. All rights reserved.";
 
   return (
     <footer className="bg-transparent">
@@ -21,7 +26,7 @@ export function Footer() {
               <Instagram className="w-6 h-6" />
             </a>
           </div>
-          <p className="mb-2 md:mb-0">{t("copyright")}</p>
+          <p className="mb-2 md:mb-0">{copyrightText}</p>
         </div>
       </div>
     </footer>

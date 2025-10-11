@@ -2,10 +2,14 @@
 import { Header } from "@/components/header"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
-import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 export default function ContactPage() {
-  const t = useTranslations("ContactPage");
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'en';
+
+  const title = locale === 'fr' ? "Contactez-nous" : "Contact Us";
+  const subtitle = locale === 'fr' ? "Nous sommes là pour vous aider." : "We are here to help.";
 
   return (
     <div className="text-foreground font-display">
@@ -13,9 +17,9 @@ export default function ContactPage() {
       <main className="py-12 md:py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-black">{t("title")}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 text-black">{title}</h1>
             <p className="text-lg md:text-xl text-black max-w-3xl mx-auto">
-              {t("subtitle")}
+              {subtitle}
             </p>
           </div>
           <ContactSection />

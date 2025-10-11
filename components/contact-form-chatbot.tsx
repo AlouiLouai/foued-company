@@ -20,7 +20,7 @@ export function Chatbot({ onChatComplete, isLoading }: ChatbotProps) {
   ] : [
     "To start, could you tell us which service you are interested in?",
     "Great! What is your estimated budget for this project?",
-    "Thanks. Is there any other information you'd like to share?",
+    "Thank you. Is there any additional information you would like to provide regarding this project?",
   ];
 
   const placeholder = locale === 'fr' ? "Votre réponse..." : "Your response...";
